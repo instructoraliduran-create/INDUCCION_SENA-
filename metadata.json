@@ -1,0 +1,6 @@
+{
+  "name": "Inducción SENA - Plataforma Institucional",
+  "description": "Plataforma interactiva de inducción institucional para aprendices del Servicio Nacional de Aprendizaje SENA. Conoce la historia, símbolos, reglamento, bienestar, simulador de casos y genera tu certificado de inducción.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

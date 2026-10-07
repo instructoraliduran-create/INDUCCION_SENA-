@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Ambient Radial Lighting & High-Tech Mesh */
+.ambient-glow-bg {
+  background-image: 
+    radial-gradient(at 10% 15%, rgba(57, 169, 0, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 20%, rgba(37, 99, 235, 0.07) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+}
+
+.dark .ambient-glow-bg {
+  background-image: 
+    radial-gradient(at 10% 15%, rgba(57, 169, 0, 0.14) 0px, transparent 50%),
+    radial-gradient(at 90% 20%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(5, 150, 105, 0.08) 0px, transparent 50%);
+}
+
+/* Bento Glassmorphic Containers */
+.glass-panel {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .glass-panel {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(57, 169, 0, 0.15), 0 0 0 1px rgba(57, 169, 0, 0.3);
+}
+
+.dark .glass-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(57, 169, 0, 0.25), 0 0 0 1px rgba(57, 169, 0, 0.4);
+}
+
+@keyframes bluePulseGlow {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    background-color: rgba(37, 99, 235, 0);
+  }
+  30% {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    background-color: rgba(30, 64, 175, 0.22);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    background-color: rgba(59, 130, 246, 0);
+  }
+}
+
+.animate-blue-effect {
+  animation: bluePulseGlow 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
